@@ -13,16 +13,9 @@ export class TennisGame {
   }
 
   displayScore() {
+    // Equal scores :
     if (this.playerOne.score === 3 && this.playerTwo.score === 3) {
       return 'deuce'
-    }
-
-    if (this.playerOne.score === 4 && this.playerTwo.score === 3) {
-      return `Avantage: ${this.playerOne.name}`
-    }
-
-    if (this.playerOne.score === 3 && this.playerTwo.score === 4) {
-      return `Avantage: ${this.playerTwo.name}`
     }
 
     if (this.playerOne.score === 4 && this.playerTwo.score === 4) {
@@ -31,6 +24,16 @@ export class TennisGame {
       return `deuce`
     }
 
+    // Advantages :
+    if (this.playerOne.score === 4 && this.playerTwo.score === 3) {
+      return `Avantage: ${this.playerOne.name}`
+    }
+
+    if (this.playerOne.score === 3 && this.playerTwo.score === 4) {
+      return `Avantage: ${this.playerTwo.name}`
+    }
+
+    // Winning :
     if (this.playerOne.score === 5) {
       return `Nous avons un gagnant: ${this.playerOne.name}.`
     }
@@ -39,6 +42,7 @@ export class TennisGame {
       return `Nous avons un gagnant: ${this.playerTwo.name}.`
     }
 
+    // Display :
     return `${this.setScoreToDisplay(this.playerOne.score)}-${this.setScoreToDisplay(this.playerTwo.score)}`
   }
 
