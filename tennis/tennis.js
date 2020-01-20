@@ -21,7 +21,7 @@ export class TennisGame {
     if (this.playerOne.score === 4 && this.playerTwo.score === 4) {
       this.playerOne.score--
       this.playerTwo.score--
-      return `deuce`
+      return 'deuce'
     }
 
     // Advantages :
@@ -34,11 +34,15 @@ export class TennisGame {
     }
 
     // Winning :
-    if (this.playerOne.score === 5) {
+    if (this.playerOne.score === 5 ||
+      (this.playerOne.score === 4 && this.playerTwo.score < 3)
+    ) {
       return `Nous avons un gagnant: ${this.playerOne.name}.`
     }
 
-    if (this.playerTwo.score === 5) {
+    if (this.playerTwo.score === 5 ||
+      (this.playerTwo.score === 4 && this.playerOne.score < 3)
+    ) {
       return `Nous avons un gagnant: ${this.playerTwo.name}.`
     }
 
